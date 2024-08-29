@@ -162,3 +162,22 @@ public class RailFenceCipher {
     }
 }
 _______________________________________________________________________________________
+openssl enc -aes-192-ecb -pbkdf2 -in 1.png -out 1.enc -pass pass:CO3114
+
+openssl enc -d -aes-192-ecb -pbkdf2 -in 1.enc -out original.png -pass pass:CO3114
+
+echo "computer science" > plain.txt
+openssl enc -aes-128-ecb -pbkdf2 -in plain.txt -out cipher1.enc -pass pass:CO3114
+
+cat cipher1.enc
+
+openssl enc -des-ecb -pbkdf2 -in cipher1.enc -out cipher2.enc -pass pass:CO3114
+
+cat cipher2.enc
+
+openssl enc -d -des-ecb -pbkdf2 -in cipher2.enc -out c2original.enc -pass pass:CO3114
+
+
+openssl enc -d -aes-128-ecb -pbkdf2 -in c2original.enc -out originalplain.txt -pass pass:CO3114
+
+openssl enc -d -des-ecb -pbkdf2 -in cipher2.enc -out c2original.enc -pass pass:CO3114
